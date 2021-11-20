@@ -4,7 +4,6 @@ import AddPieces from "./AddPieces";
 import PieceCard from "./PieceCard";
 import ProtectRoute from "./middleware/Auth";
 
-
 function Repertoire() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [pieces, setPieces] = useState([]);
@@ -48,7 +47,8 @@ function Repertoire() {
           disabled={popupVisible ? "true" : ""}
           onClick={() => setPopupVisible(!popupVisible)}
         >
-        Add Piece
+        <p className="icon">+</p>
+        <p>Add Piece</p>
         </button>
         <div
           className={popupVisible ? "popupContainer" : "popupContainer--hidden"}>

@@ -7,7 +7,7 @@ function Login() {
 
   function localStorageSetter() {
     localStorage.setItem("user", document.querySelector("[placeholder='Username']"));
-    navigate('/Repertoire');
+    navigate('/repertoire');
   }
 
   return (

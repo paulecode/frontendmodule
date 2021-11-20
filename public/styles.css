@@ -90,8 +90,22 @@ body {
 }
 
 .addButton {
-  width: 10rem;
+  width: 12rem;
   height: 16rem;
+  border: 2px dashed #bababa;
+  border-radius: 10px;
+  background-color: inherit;
+  color: #bababa;
+  font-weight: normal;
+}
+
+.addButton .icon {
+  font-size: 4rem;
+  color: #bababa;
+}
+
+.addButton:hover {
+  background-color: var(--background);
 }
 
 .loginscreen {

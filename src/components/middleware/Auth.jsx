@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ProtectRoute(ChildComponent) {
+function ProtectRoute({children}) {
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState();
 
   useEffect(() => {
     try {
@@ -13,16 +14,15 @@ function ProtectRoute(ChildComponent) {
       setIsAuthenticated(false);
     }
   }, []);
-  const [isAuthenticated, setIsAuthenticated] = useState();
 
-//   return isAuthenticated ? (
-//     <ChildComponent />
-//   ) : (
-//     <>
-//     {navigate('/')}
-//     </>
-//   );
-  return (<h1>Hellow</h1>);
+
+  return isAuthenticated ? (
+      children
+  ) : (
+    <>
+    {navigate('/')}
+    </>
+  );
 }
 
 export default ProtectRoute;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import fetchComposer from "./FetchHandler";
 
 function AddPieces(props) {
 
@@ -7,8 +8,9 @@ function AddPieces(props) {
     title: "",
     titleExtra: ""
   });
+  const [composers, setComposers] = useState([]);
 
-  function changeHandler(event) {
+  async function changeHandler(event) {
     const { name, value } = event.target;
 
     setPiece(prevPiece => {
@@ -17,6 +19,10 @@ function AddPieces(props) {
         [name]: value
       };
     });
+    const composerFetch = await fetchComposer(value);
+    setComposers(composerFetch);
+
+    console.log(composers);
   }
 
   function submitPiece(event) {
@@ -45,6 +51,7 @@ function AddPieces(props) {
   }
 
   return(
+
     <div className="popup">
       <h1>Add Piece</h1>
       <form>
@@ -53,8 +60,9 @@ function AddPieces(props) {
           onChange={changeHandler}
           placeholder="Composer"
           required
-          maxLength="2"
+          maxLength="15"
           type="text"
+          list="composers"
         />
         <input
           name="title"
@@ -75,6 +83,15 @@ function AddPieces(props) {
           Add
         </button>
       </form>
+
+      <datalist id="composers">
+        {composers.map((c) => {
+          console.log(c)
+          return (
+            <option value={c}>{c}</option>
+          );
+        })}
+      </datalist>
     </div>
   );
 }

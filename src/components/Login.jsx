@@ -4,6 +4,12 @@ import wallpaper from "./piano.png";
 
 function Login() {
   const navigate = useNavigate();
+
+  function localStorageSetter() {
+    localStorage.setItem("user", document.querySelector("[placeholder='Username']"));
+    navigate('/Repertoire');
+  }
+
   return (
     <div>
       <img
@@ -18,7 +24,7 @@ function Login() {
         <form>
           <input className="logintextfield" placeholder="Username" />
           <input className="logintextfield" placeholder="Password" />
-          <button className="loginbutton" onClick={() => {navigate('/Repertoire')}}>Login</button>
+          <button className="loginbutton" onClick={localStorageSetter}>Login</button>
         </form>
       </div>
     </div>

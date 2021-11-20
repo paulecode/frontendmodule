@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddPieces from "./AddPieces";
 import PieceCard from "./PieceCard";
+import ProtectRoute from "./middleware/Auth";
 
 function Repertoire() {
   const [popupVisible, setPopupVisible] = useState(false);
@@ -45,4 +46,4 @@ function Repertoire() {
   );
 }
 
-export default Repertoire;
+export default ProtectRoute( Repertoire );

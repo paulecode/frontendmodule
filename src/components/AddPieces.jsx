@@ -28,9 +28,9 @@ function AddPieces(props) {
     // });
 
     let composer = document.querySelector("[name='composer']");
-    let title = document.querySelector("[name='title']");
-    let titleExtra = document.querySelector("[name='titleExtra']");
-
+    //let title = document.querySelector("[name='title']");
+    //let titleExtra = document.querySelector("[name='titleExtra']");
+    //TODO
     if (composer.value === "") return;
 
     console.log(composer.value);
@@ -51,7 +51,6 @@ function AddPieces(props) {
         <input
           name="composer"
           onChange={changeHandler}
-          value={piece.composer}
           placeholder="Composer"
           required
           maxLength="2"

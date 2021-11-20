@@ -99,7 +99,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--background);
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 
 }
 
@@ -161,4 +161,16 @@ body {
 
 .content__card p{
   display: block;
+}
+
+.wallpaper {
+  position: absolute;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;
+  z-index: -1;
 }

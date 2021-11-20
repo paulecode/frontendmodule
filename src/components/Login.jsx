@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import wallpaper from "./wallpaperpiano.png";
+import wallpaper from "./piano.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ function Login() {
         className="wallpaper"
         src={wallpaper}
         alt="Piano Wallpaper"
-        style={{display: "none"}}
+        //style={{display: "none"}}
       ></img>
       <div className="loginscreen">
         <h1>Piano Project</h1>

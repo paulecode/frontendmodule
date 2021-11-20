@@ -11,7 +11,7 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="loginContainer">
       <img
         className="wallpaper"
         src={wallpaper}

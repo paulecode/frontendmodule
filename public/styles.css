@@ -36,6 +36,12 @@ body {
   grid-template-columns: 16rem auto;
 }
 
+@media only screen and (max-width: 40rem) {
+  .fullscreenContainer {
+    grid-template-areas: "sidebar sidebar" "cardholder cardholder";
+  }
+}
+
 .sidebar {
   border: 1px solid red;
   grid-area: sidebar;
@@ -52,7 +58,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  align-content: flex-start;
   overflow-y: auto;
+  gap: 1rem;
 }
 
 .popupContainer {
@@ -173,4 +181,12 @@ body {
 
   object-fit: cover;
   z-index: -1;
+}
+
+.loginContainer{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+
+  align-items: center;
 }

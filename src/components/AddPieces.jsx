@@ -84,14 +84,14 @@ function AddPieces(props) {
         </button>
       </form>
 
-      <datalist id="composers">
+      <div id="composers">
         {composers.map((c) => {
           console.log(c)
           return (
             <option value={c}>{c}</option>
           );
         })}
-      </datalist>
+      </div>
     </div>
   );
 }

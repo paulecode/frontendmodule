@@ -1,8 +1,9 @@
 async function fetchComposer(composer) {
+  const url = composer.length === 1 ? "name" : "search";
   let returnValue;
   try {
     const res = await fetch(
-      `https://api.openopus.org/composer/list/search/${composer}.json`
+      `https://api.openopus.org/composer/list/${url}/${composer}.json`
     );
     const json = await res.json();
     const composers = json.composers;

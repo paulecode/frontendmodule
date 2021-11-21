@@ -15,7 +15,6 @@ function Repertoire() {
   }
 
 
-
   function logOut() {
     localStorage.clear();
     navigate('/');
@@ -26,29 +25,45 @@ function Repertoire() {
       <div className="sidebar">
       <div className="sidebar-top">
       <p>Hello {user}</p>
-        <button
-          onClick={logOut}
-          className="logout-button"
-        >
-        Logout
-        </button>
         </div>
+    
         <div className="nav-items">
-          <ul>
-            <li>
-              Schedule
-              <ul className="sub-nav-items">
-                {pieces.slice(0,3).map((pieceItem, index) => {
-                  return (
-                    <li>
-                      {pieceItem.title}
-                    </li>
-                  )
-                })}
-                <li>Etude</li>
-                <li>Nocturne</li>
-
-              </ul>
+          <ul className="nav-list">
+            <li className="nav-item nav-active">
+              <div className="nav-item-div">
+                Repertoire
+              </div>
+            </li>
+          </ul>
+          <ul className="nav-sub-list">
+          {pieces.slice(0,3).map((pieceItem, index) => {
+            return (
+              <li className="nav-sub-item">
+                {pieceItem.title}
+              </li>
+              );
+            })}
+          </ul>
+          <ul className="nav-list">
+            <li className="nav-item">
+              <div className="nav-item-div">
+                Schedule
+              </div>
+            </li>
+            <li className="nav-item">
+              <div className="nav-item-div">
+                Sight-reading
+              </div>
+            </li>
+            <li className="nav-item">
+              <div className="nav-item-div">
+                Your Progress
+              </div>
+            </li>
+            <li className="nav-selectable nav-active nav-item">
+              <div className="nav-item-div" onClick={logOut}>
+                Log Out
+              </div>
             </li>
           </ul>
         </div>
@@ -65,16 +80,6 @@ function Repertoire() {
             />
           );
         })}
-        <PieceCard
-          composer="Chopin"
-          title="Nocturne"
-          titleExtra="Opus 19 No. 2"
-        />
-        <PieceCard
-          composer="Grieg"
-          title="In The Hall Of The Mountain"
-          titleExtra="TitleExtra"
-        />
         <button
           className="addButton"
           disabled={popupVisible ? "true" : ""}

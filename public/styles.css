@@ -28,7 +28,6 @@ body {
 }
 
 .fullscreenContainer {
-  border: 1px solid red;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -44,7 +43,6 @@ body {
 }
 
 .sidebar {
-  border: 1px solid red;
   grid-area: sidebar;
   height: 100vh;
   background-color: var(--primary);
@@ -52,7 +50,6 @@ body {
 }
 
 .cardholder {
-  border: 1px solid red;
   grid-area: cardholder;
   padding: 4rem;
 
@@ -65,7 +62,6 @@ body {
 }
 
 .popupContainer {
-  border: 1px solid red;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -84,7 +80,6 @@ body {
 }
 
 .popup {
-  border: 1px solid red;
   background: var(--background);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -268,11 +263,13 @@ body {
   background-color: black;
   height: 4rem;
   color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
 }
 
 .sidebar-top p {
   display: inline-block;
-  margin-left: 1.5rem;
   font-weight: bold;
   font-size: 1.25rem;
 }
@@ -288,20 +285,63 @@ body {
 }
 
 .nav-items {
+  padding-top: 2rem;
   color: white;
-  padding: 1rem;
 }
 
-.nav-items ul {
+.nav-list {
+  font-size: 1.25rem;
   list-style: none;
 }
 
-.nav-items li{
-  border: 1px red solid;
+.nav-item {
+  padding: 0 1rem;
+  color: var(--background-dark);
+}
+
+.nav-active {
+  border-right: 0.5rem solid blue;
+  font-weight: bold;
+  color: var(--background);
+}
+
+.nav-selectable {
+  color: var(--background);
+}
+
+.nav-item:hover .nav-item-div {
+  background-color: var(--primary-dark);
+  cursor: pointer;
+}
+
+.nav-active:hover .nav-item-div {
+  background-color: var(--primary-bright);
+}
+
+.nav-item-div {
+  border-radius: 10px;
   padding: 1rem;
 }
 
-.sub-nav-items {
-  font-size: 0.75rem;
-  font-weight:lighter;
+.nav-selectable{
+  border: none;
+}
+
+.nav-sub-list {
+  padding: 1rem;
+  padding-left: 4rem;
+  font-size: 1rem;
+  font-weight: lighter;
+  list-style: none;
+}
+
+.nav-sub-item:hover {
+  background-color: var(--primary-bright);
+  cursor: pointer;
+}
+
+.nav-sub-item {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 10px;
 }

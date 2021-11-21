@@ -22,7 +22,7 @@ function Login() {
         <h1>Piano Project</h1>
         <h2>Log into your Account</h2>
         <form>
-          <input className="logintextfield" placeholder="Username" />
+          <input className="logintextfield" placeholder="Username" maxLength="10"/>
           <input className="logintextfield" placeholder="Password" />
           <button className="loginbutton" onClick={localStorageSetter}>Login</button>
         </form>

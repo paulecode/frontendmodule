@@ -34,16 +34,16 @@ function AddPieces(props) {
     // });
 
     let composer = document.querySelector("[name='composer']");
-    //let title = document.querySelector("[name='title']");
-    //let titleExtra = document.querySelector("[name='titleExtra']");
-    //TODO
-    if (composer.value === "") return;
+    let title = document.querySelector("[name='title']");
+    let titleExtra = document.querySelector("[name='titleExtra']");
 
-    console.log(composer.value);
-    composer.value = "";
+    if (composer.value === "" || title.value === "") return;
+
     props.onAdd(piece);
-    console.log(composer.value);
+
     composer.value = "";
+    title.value = "";
+    titleExtra.value = "";
     setComposers([]);
 
 
@@ -62,24 +62,29 @@ function AddPieces(props) {
           maxLength="15"
           type="text"
           list="composers"
+          className="logintextfield"
+          required
         />
         <input
           name="title"
           onChange={changeHandler}
-          value={piece.title}
           placeholder="Title"
           maxLength="25"
+          className="logintextfield"
+          required
         />
         <input
           name="titleExtra"
           onChange={changeHandler}
-          value={piece.titleExtra}
           placeholder="Title Extra"
           maxLength="25"
+          className="logintextfield"
+
         />
         <button
           onClick={submitPiece}
           type="submit"
+          className="loginbutton"
         >
           Add
         </button>

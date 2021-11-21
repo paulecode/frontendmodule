@@ -8,6 +8,7 @@ function Repertoire() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [pieces, setPieces] = useState([]);
   const navigate = useNavigate();
+  const user = localStorage.getItem("user");
   function addPiece(newPiece) {
     setPieces(prevPieces => [...prevPieces, newPiece]);
     setPopupVisible(false);
@@ -23,11 +24,34 @@ function Repertoire() {
     <ProtectRoute>
     <div className="fullscreenContainer">
       <div className="sidebar">
+      <div className="sidebar-top">
+      <p>Hello {user}</p>
         <button
           onClick={logOut}
+          className="logout-button"
         >
         Logout
         </button>
+        </div>
+        <div className="nav-items">
+          <ul>
+            <li>
+              Schedule
+              <ul className="sub-nav-items">
+                {pieces.slice(0,3).map((pieceItem, index) => {
+                  return (
+                    <li>
+                      {pieceItem.title}
+                    </li>
+                  )
+                })}
+                <li>Etude</li>
+                <li>Nocturne</li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="cardholder">
         {pieces.map((pieceItem, index) => {

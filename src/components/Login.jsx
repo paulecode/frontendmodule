@@ -6,7 +6,7 @@ function Login() {
   const navigate = useNavigate();
 
   function localStorageSetter() {
-    localStorage.setItem("user", document.querySelector("[placeholder='Username']"));
+    localStorage.setItem("user", document.querySelector("[placeholder='Username']").value);
     navigate('/repertoire');
   }
 

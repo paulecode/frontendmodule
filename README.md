@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Project Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project servers for the assessment of SE20, and is deployed on https://paulecode.github.io/frontendmodule/.
 
-## Available Scripts
+## Local Setup
 
-In the project directory, you can run:
+First, clone this repository
 
-### `npm start`
+`https://github.com/paulecode/frontendmodule.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Navigate into the directory
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`cd frontendmodule`
 
-### `npm test`
+Before you start the development server, you need to edit the file package.json, and remove
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`"homepage": "https://paulecode.github.io/frontendmodule",`
 
-### `npm run build`
+in line 2.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Save the file, go back to your terminal and now you can start the development server with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Software Description
 
-### `npm run eject`
+This software is yet to be completed, but is basically for pianists who want to practice certain pieces and keep track of practice time,
+as well as other meta data which has yet to be implented.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### How to use this software
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+As this software does not have a working backend yet, the login screen does not really work. Just fill out a random username, and hit enter or login.
+The username will appear on the sidebar in the next screen.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You can now add pieces by pressing the "Add Piece" button. A dialog will appear, where you can enter information like
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Composer:     Chopin  
+Title:        Nocturne  
+Title Extra:  Opus 9 No. 2  
 
-## Learn More
+The composer textfield possesses an Autocomplete function, after typing the first letter you should get suggestions for matching composers.
+Hit enter or press add to close the dialog.
+It will then create a card with this meta data, and a placeholder image.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Module requirements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In the following list I will go over the module requirements as specified on the learning platform, and whether or how I dealt with them
 
-### Code Splitting
+#### Use either a modern JavaScript framework or use modern patterns for dynamic DOM updates, state management and working with components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is built on React.js, utilizes state management in functional components, best seen in the cards.
 
-### Analyzing the Bundle Size
+#### Have frontend tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I wrote two frontend tests, one for the cards to see whether they crashed upon rendering and one for the login screen.
 
-### Making a Progressive Web App
+The loginscreen test throws errors because `useNavigate` is supposed to be in Routing components only, which is happening outside of the scope of this file,
+so i took the liberty of ignoring the test result. I sadly don't know how to deal with this in a professional manner
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Work with APIs to send and retrieve data dynamically
 
-### Advanced Configuration
+I used the open opus API found at 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+https://openopus.org/
 
-### Deployment
+to implement the autocomplete functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This works by making a fetch request after entering the first letter to get a list of all components starting with that letter.
+This list is then mapped into a `<datalist />` component.
 
-### `npm run build` fails to minify
+#### Use authentication & authorization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Due to the lack of a working backend I simulated authentication by simply setting the username in the localstorage, and then calling for it to check
+whether a user is authorized to access certain routes. I am fully aware that this is best done with a backend, or atleast with a BaaS such as Firebase.
+An alternative to this would have been to store the token in jwt.
+
+#### Have proper styling (either with custom CSS or using a framework)
+
+I didn't use a styling framework like Bootstrap but spent a small amount of time creating my own style in pure CSS. The styling followed my figma design.
+
+#### Use git as version control system
+
+I used git as a version control system. Due to the limited scope of the project and me working alone I didn't need to merge anything, and admittedly didn't follow clean coding commit messages such as `feat: Feature` or `fix: Bugfix`.
+
+#### Be deployed and available publicly on the internet
+
+As aforementioned, this project is hosted on github pages.
+
+# Diagrams
+
+Any diagrams will be put into the "Documentation" Folder.

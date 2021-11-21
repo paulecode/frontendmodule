@@ -44,7 +44,7 @@ function AddPieces(props) {
     props.onAdd(piece);
     console.log(composer.value);
     composer.value = "";
-
+    setComposers([]);
 
 
     event.preventDefault();
@@ -59,7 +59,6 @@ function AddPieces(props) {
           name="composer"
           onChange={changeHandler}
           placeholder="Composer"
-          required
           maxLength="15"
           type="text"
           list="composers"
@@ -69,12 +68,14 @@ function AddPieces(props) {
           onChange={changeHandler}
           value={piece.title}
           placeholder="Title"
+          maxLength="25"
         />
         <input
           name="titleExtra"
           onChange={changeHandler}
           value={piece.titleExtra}
           placeholder="Title Extra"
+          maxLength="25"
         />
         <button
           onClick={submitPiece}
@@ -84,14 +85,14 @@ function AddPieces(props) {
         </button>
       </form>
 
-      <div id="composers">
+      <dataList id="composers">
         {composers.map((c) => {
           console.log(c)
           return (
             <option value={c}>{c}</option>
           );
         })}
-      </div>
+      </dataList>
     </div>
   );
 }

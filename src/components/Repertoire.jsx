@@ -41,7 +41,16 @@ function Repertoire() {
             />
           );
         })}
-
+        <PieceCard
+          composer="Chopin"
+          title="Nocturne"
+          titleExtra="Opus 19 No. 2"
+        />
+        <PieceCard
+          composer="Grieg"
+          title="In The Hall Of The Mountain"
+          titleExtra="TitleExtra"
+        />
         <button
           className="addButton"
           disabled={popupVisible ? "true" : ""}

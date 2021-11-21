@@ -88,4 +88,4 @@ As aforementioned, this project is hosted on github pages.
 
 # Diagrams
 
-Any diagrams will be put into the "Documentation" Folder.
+The Diagram is found in the root folder here.

@@ -1,0 +1,347 @@
+:root {
+  --dark-text-primary: #444444;
+  --dark-text-secondary: #666666;
+  --dark-text-tertiary: #888888;
+
+  --background: #f9f9f9;
+  --background-dark: #CFCFCF;
+  --background-bright: #ffffff;
+
+  --primary: #212121;
+  --primary-dark: #000000;
+  --primary-bright: #484848;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.fullscreenContainer {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "sidebar cardholder";
+  grid-template-columns: 16rem auto;
+  background-color: var(--background);
+}
+
+@media only screen and (max-width: 40rem) {
+  .fullscreenContainer {
+    grid-template-areas: "sidebar sidebar" "cardholder cardholder";
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+  height: 100vh;
+  background-color: var(--primary);
+
+}
+
+.cardholder {
+  grid-area: cardholder;
+  padding: 4rem;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow-y: auto;
+  gap: 1rem;
+}
+
+.popupContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popupContainer--hidden{
+  display: none;
+}
+
+.popup {
+  background: var(--background);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 4rem;
+
+}
+
+.addButton {
+  width: 12rem;
+  height: 16rem;
+  border: 2px dashed #bababa;
+  border-radius: 10px;
+  background-color: inherit;
+  color: #bababa;
+  font-weight: normal;
+}
+
+.addButton .icon {
+  font-size: 4rem;
+  color: #bababa;
+}
+
+.addButton:hover {
+  background-color: var(--background);
+  cursor: pointer;
+}
+
+.loginscreen {
+  width: 95%;
+  max-width: 25rem;
+
+  border: 1px solid var(--primary);
+  border-radius: 1rem;
+  margin: 10rem auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+}
+
+.loginscreen h1 {
+  color: var(--dark-text-primary);
+  font-family: Noteworthy;
+  font-size: 2rem;
+}
+
+.loginscreen h2 {
+  color: var(--dark-text-tertiary);
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 2.5rem 0;
+}
+
+.loginbutton {
+  padding: 1rem 5rem;
+  font-size: 1rem;
+  border: 1px solid var(--primary);
+  border-radius: 32px;
+  background-color: var(--background);
+  margin-top: 2rem;
+  cursor: pointer;
+  -webkit-transition: background-color 100ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
+}
+
+.loginbutton:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.logintextfield {
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--background-dark);
+  padding: 1rem 4rem 1rem 1rem;
+  text-align: left;
+  margin-bottom: 5px;
+  display: block;
+  margin-top: 0.5rem;
+  background-color: var(--background);
+  -webkit-transition: border-bottom 150ms ease-in-out;
+  transition: border-bottom 150ms ease-in-out;
+}
+
+.logintextfield:focus {
+  border-bottom: 1px solid var(--primary);
+  outline: none;
+}
+
+.content__card {
+  border: 1px solid var(--background-dark);
+  border-radius: 10px;
+  width: 12rem;
+  height: 16rem;
+  display: inline-block;
+  background-color: var(--background-bright);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+
+}
+
+/* .content__card:hover {
+  width: 14rem;
+  height: 18rem;
+  margin: 1rem;
+} */
+
+
+.wallpaper {
+  position: absolute;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  object-fit: cover;
+  z-index: -1;
+}
+
+.loginContainer {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+
+  align-items: center;
+}
+
+.placeholderImage {
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px 10px 0 0;
+  width: 12rem;
+  height: 8rem;
+}
+
+/* .content__card:hover img{
+  width: 14rem;
+  height: 9rem;
+} */
+
+.cardMeta {
+  text-align: center;
+  border-top: 1px solid var(--background-dark);
+}
+
+.cardComposer {
+  margin-top: 1rem;
+  color: blue;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.cardTitle {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  max-width: 12rem;
+  white-space: initial;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bolder;
+  font-size: 1rem;
+  -webkit-transition: font-size 150ms ease-in-out;
+  transition: font-size 150ms ease-in-out;
+}
+
+.content__card:hover .cardTitle {
+  font-size: 1.25rem;
+}
+
+.cardTitleExtra {
+  margin-top: 0.75rem;
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+
+.sidebar-top {
+  background-color: black;
+  height: 4rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.sidebar-top p {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-left: 4rem;
+  cursor: pointer;
+}
+
+.nav-items {
+  padding-top: 2rem;
+  color: white;
+}
+
+.nav-list {
+  font-size: 1.25rem;
+  list-style: none;
+}
+
+.nav-item {
+  padding: 0 1rem;
+  color: var(--background-dark);
+}
+
+.nav-active {
+  border-right: 0.5rem solid blue;
+  font-weight: bold;
+  color: var(--background);
+}
+
+.nav-selectable {
+  color: var(--background);
+}
+
+.nav-item:hover .nav-item-div {
+  background-color: var(--primary-dark);
+  cursor: pointer;
+}
+
+.nav-active:hover .nav-item-div {
+  background-color: var(--primary-bright);
+}
+
+.nav-item-div {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.nav-selectable{
+  border: none;
+}
+
+.nav-sub-list {
+  padding: 1rem;
+  padding-left: 4rem;
+  font-size: 1rem;
+  font-weight: lighter;
+  list-style: none;
+}
+
+.nav-sub-item:hover {
+  background-color: var(--primary-bright);
+  cursor: pointer;
+}
+
+.nav-sub-item {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 10px;
+}
